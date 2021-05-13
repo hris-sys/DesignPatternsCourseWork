@@ -7,39 +7,30 @@ namespace DesignPatterns.Facade.Restaurants
 {
     public class McDonalds : Restaurant
     {
-        public override Menu CreateBigMenu(params string[] arg)
+        public override Menu CreateBigMenu()
         {
-            var bigMenu = new Menu();
+            var bigMenu = new BigMenu();
 
 
-            //command pattern
-            bigMenu.Burgers.Add(new BigMac());
-            bigMenu.Burgers.Add(new Hamburger());
-            bigMenu.Burgers.Add(new Cheeseburger());
-            bigMenu.Drinks.Add(new CocaCola());
-            bigMenu.Drinks.Add(new Fanta());
+            //water + cola
 
             return bigMenu;
         }
 
         public override Menu CreateKidsMenu()
         {
-            var kidsMenu = new Menu();
+            var kidsMenu = new KidsMenu();
 
-            kidsMenu.Burgers.Add(new Cheeseburger());
-            kidsMenu.Drinks.Add(new Water());
+            //water
 
             return kidsMenu;
         }
 
         public override Menu CreateMediumMenu()
         {
-            var mediumMenu = new Menu();
+            var mediumMenu = new MediumMenu();
 
-            mediumMenu.Burgers.Add(new Hamburger());
-            mediumMenu.Burgers.Add(new Cheeseburger());
-            mediumMenu.Drinks.Add(new CocaCola());
-            mediumMenu.Drinks.Add(new Fanta());
+            //cola + fanta
 
             return mediumMenu;
         }

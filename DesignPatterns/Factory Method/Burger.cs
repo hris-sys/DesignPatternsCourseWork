@@ -12,7 +12,6 @@ namespace DesignPatterns.Factory_Method
 
         public List<Ingredient> Ingredients { get; set; }
 
-        //Template pattern comes into place
         public abstract void CreateBurger();
 
     }

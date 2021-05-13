@@ -3,9 +3,9 @@ using System.Collections.Generic;
 
 namespace DesignPatterns.Facade.Menus
 {
-    public class Menu
+    public abstract class Menu
     {
-        public Menu()
+        protected Menu()
         {
             this.Drinks = new List<Drink>();
             this.Burgers = new List<Burger>();

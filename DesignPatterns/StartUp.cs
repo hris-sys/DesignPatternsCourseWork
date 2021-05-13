@@ -1,8 +1,8 @@
 ﻿namespace DesignPatterns
 {
-    using DesignPatterns.Facade.Restaurants;
-    using DesignPatterns.Factory_Method;
-    using DesignPatterns.Factory_Method.Burgers;
+    using Facade.Restaurants;
+
+
     using System;
 
     public class StartUp
