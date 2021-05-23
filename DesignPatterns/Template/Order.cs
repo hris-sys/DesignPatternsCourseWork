@@ -2,18 +2,21 @@
 using DesignPatterns.Factory_Method;
 using DesignPatterns.Factory_Method.Drinks;
 using System.Collections.Generic;
+using System;
+using System.Diagnostics;
 
 namespace DesignPatterns.Template
 {
     public abstract class Order
     {
-        protected List<Burger> _burgers;
-
         protected Order(Menu menu)
         {
             this.Menu = menu;
-            this._burgers = new List<Burger>();
+            this.Burgers = menu.Burgers;
         }
+
+        protected List<Burger> Burgers { get; set; }
+
         protected Menu Menu { get; set; }
 
         protected abstract bool WantWater();
@@ -22,9 +25,10 @@ namespace DesignPatterns.Template
 
         protected abstract bool WantFanta();
 
-
-        protected void MakeOrder()
+        public void MakeOrder()
         {
+            Console.WriteLine("Finalyzing order...");
+
             if (WantWater())
             {
                 this.Menu.Drinks.Add(new Water());
@@ -39,18 +43,29 @@ namespace DesignPatterns.Template
             {
                 this.Menu.Drinks.Add(new CocaCola());
             }
+            System.Threading.Thread.Sleep(1000);
 
-            if (_burgers.Count > 0)
-            {
-                this.Menu.Burgers.AddRange(_burgers);
-            }
+            Console.WriteLine($"Order finalyzed! Enjoy");
+
+            this.Menu.ToString();
         }
 
-        //ToDo: Test whether burgers will get added after creation of some menu in the facade
-        //and finish the implementation
         public void AddExtraBurger(Burger burger)
         {
-            this._burgers.Add(burger);
+            this.Burgers.Add(burger);
+        }
+
+        public void RemoveBurger(Burger burger)
+        {
+            foreach (Burger item in this.Burgers)
+            {
+                if (item.GetType().FullName == burger.GetType().FullName)
+                {
+                    this.Burgers.Remove(item);
+                    return;
+                }
+            }
+            Console.WriteLine("Such burger doesn't exist in the order...");
         }
 
     }

@@ -8,7 +8,13 @@ namespace DesignPatterns.Template
         {
 
         }
+        //maybe can enforce big menus to have 1 drink allowed?
         protected override bool WantCola()
+        {
+            return true;
+        }
+
+        protected override bool WantFanta()
         {
             return true;
         }

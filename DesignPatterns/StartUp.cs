@@ -1,5 +1,7 @@
 ﻿namespace DesignPatterns
 {
+    using DesignPatterns.Factory_Method.Burgers;
+    using DesignPatterns.Template;
     using Facade.Restaurants;
 
 
@@ -9,22 +11,21 @@
     {
         public static void Main()
         {
+            var brg = new BigMac();
             var mcdonalds = new McDonalds();
             var hesburger = new Hesburger();
 
             var menuMc = mcdonalds.CreateBigMenu();
             var menuHes = hesburger.CreateMediumMenu();
 
-            Console.WriteLine(hesburger.GetType().Name);
-            Console.WriteLine(new string('-', 10));
-            menuHes.Burgers.ForEach(bur => Console.WriteLine(bur.GetType().Name));
-            menuHes.Drinks.ForEach(drink => Console.WriteLine(drink.GetType().Name));
+            var mediumOrder = new SmallOrder(menuMc);
+            mediumOrder.MakeOrder();
 
-            Console.WriteLine();
-            Console.WriteLine(mcdonalds.GetType().Name);
-            Console.WriteLine(new string('-', 10));
-            menuMc.Burgers.ForEach(bur => Console.WriteLine(bur.GetType().Name));
-            menuMc.Drinks.ForEach(drink => Console.WriteLine(drink.GetType().Name));
+            //scenario 1
+            // create a mcDonalds or Hesburger
+            // create a specified menu from the restaurant mcD.createSomeMenu()
+            // create an order -> can contain extra water, fanta, extra burger or remove a burger
+            //finalize the order
         }
     }
 }

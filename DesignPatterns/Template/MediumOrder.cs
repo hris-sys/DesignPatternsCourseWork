@@ -13,6 +13,11 @@ namespace DesignPatterns.Template
             return true;
         }
 
+        protected override bool WantFanta()
+        {
+            return false;
+        }
+
         protected override bool WantWater()
         {
             return false;

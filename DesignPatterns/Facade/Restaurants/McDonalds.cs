@@ -11,7 +11,6 @@ namespace DesignPatterns.Facade.Restaurants
         {
             var bigMenu = new BigMenu();
 
-
             //water + cola
 
             return bigMenu;

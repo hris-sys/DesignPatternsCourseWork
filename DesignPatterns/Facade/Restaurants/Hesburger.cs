@@ -1,6 +1,4 @@
 ﻿using DesignPatterns.Facade.Menus;
-using DesignPatterns.Factory_Method.Burgers;
-using DesignPatterns.Factory_Method.Drinks;
 
 namespace DesignPatterns.Facade.Restaurants
 {
